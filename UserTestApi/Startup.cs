@@ -37,17 +37,6 @@ namespace UserTestApi
                         .AllowAnyMethod()
                         .AllowAnyHeader());
             });
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy(MyAllowSpecificOrigins, builder =>
-            //    builder
-            //    .SetIsOriginAllowedToAllowWildcardSubdomains()
-            //    .WithOrigins(allowedOrigins)
-            //    .AllowAnyMethod()
-            //    .AllowAnyHeader()
-            //    .AllowCredentials().Build());
-            //});
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,16 +55,6 @@ namespace UserTestApi
             app.UseAuthorization();
 
             app.UseCors(MyAllowSpecificOrigins);
-
-            //app.UseCors(builder =>
-            //{
-            //    builder
-            //    .AllowAnyOrigin()
-            //    .AllowAnyMethod()
-            //    .SetIsOriginAllowed(origin => true) // allow any origin
-            //    .AllowCredentials()
-            //    .AllowAnyHeader();
-            //});
 
             app.UseCors("CorsPolicy");
 
